@@ -1,0 +1,38 @@
+equipment 
+    -betting table have  a number 1-36  and  0 
+    -roulette ball
+
+how to bet
+    tpes of bets
+        -group of numbers (1st 12)
+        -group of numbers (2nd 12)
+        -group of numbers (3rd 12)
+        - number (1-18)
+        - number (19-36)
+        - number (even)
+        - number (odd)
+        - number (red)
+        - number (black)
+    
+    -betting table
+        -inside bets
+            -straight up
+            -split
+            -street
+            -corner
+            -six line
+        -outside bets
+            -column
+            -dozen
+            -red/black
+            -even/odd
+            -high/low
+
+how to play 
+    -player places bet
+    -dealer spins wheel
+    -dealer drops ball
+    -ball lands on number
+    -dealer pays out winning bets
+    -dealer collects losing bets
+
