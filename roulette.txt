@@ -36,3 +36,30 @@ how to play
     -dealer pays out winning bets
     -dealer collects losing bets
 
+
+
+
+
+sudo code
+    -create a betting table and a roulette wheel
+    -ask the player how much money they want to start with
+    -start the game loop
+        -ask the player how much they want to bet
+        -ask the player what they want to bet on
+        -spin the wheel
+        -check if the player won or lost
+        -if the player won
+            -pay the player
+        -if the player lost
+            -take the players money
+        -ask the player if they want to play again
+
+
+Data structure
+    array(list) - betting table
+                - roulette wheel
+
+    circular doubly linked list
+                - spin the wheel
+
+    
