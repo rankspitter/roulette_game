@@ -15,18 +15,12 @@ how to bet
         - number (black)
     
     -betting table
-        -inside bets
-            -straight up
-            -split
-            -street
-            -corner
-            -six line
-        -outside bets
-            -column
-            -dozen
-            -red/black
-            -even/odd
-            -high/low
+        even and odd            (even 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36)
+        red and black           (red 1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36)
+        1st-12 2nd-12 3rd-12    (dozen)
+        1-18 19-36              (low/high)
+        1-36                    (straight up)
+
 
 how to play 
     -player places bet
