@@ -55,6 +55,7 @@ class Roulette:
 class BettingTable:
     def __init__(self):
         self.betnumber = []
+        self.types = []
         self.groups = [
             [[3, 6, 9, 12], [2, 5, 8, 11], [1, 4, 7, 10]],
             [[15, 18, 21, 24], [14, 17, 20, 23], [13, 16, 19, 22]],
@@ -64,6 +65,15 @@ class BettingTable:
     def bet_number(self):
         input_numbers = input("Enter numbers you want to bet : \n")
         self.betnumber = list(map(int, input_numbers.split()))
+        if self.check_number():
+            return True
+
+    def check_number(self):
+        for number in self.betnumber:
+            if number not in range(0, 37):
+                print(f'number {number} is not on the table')
+                return False
+        return True
 
     def show_table(self):
         groups = self.groups
@@ -74,7 +84,6 @@ class BettingTable:
             print()
         print('  1st 12     2nd 12      3rd 12')
         print("1 to 18" + " " + "<" + "even>" + "|" + " " + "red" + "   " + "black" + " " + "|" + "<odd>" + "| " + "19 to 36")
-        return " "
 
     def check_bet(self, result):
         return result in self.betnumber
@@ -87,15 +96,19 @@ if __name__ == "__main__":
 
     while True:
         try:
-            print(" ")
-            print("Welcome to the roulette game")
+            print("\nWelcome to the roulette game")
             money = int(input("Insert your money : "))
-            player = Player(money)
-            print(player.money)
-            break
+            if money <= 0:
+                print("plase enter a none negative number")
+            else :
+                player = Player(money)
+                print(f"You have {player.money} dollars.")
+                break
         except ValueError:
+            os.system('cls')
             print("Please enter a valid amount")
 
+    os.system('cls')
     print()
     print("This is the betting table")
     print()
@@ -105,10 +118,11 @@ if __name__ == "__main__":
 
     while True:
         try:
-            table.bet_number()
-            break
+            if table.bet_number():
+                break
         except ValueError:
-            print("Please enter valid numbers")
+
+            print("Please enter valid numbers\n")
 
     while True:
         try:
@@ -118,6 +132,7 @@ if __name__ == "__main__":
                 if table.check_bet(result_number):
                     print(f"The ball landed on: {result_number} ({result_color})")
                     print("You win")
+                    amount = int(amount)
                     player.money += amount * 2
                     print(f"You have {player.money} left")
                 else:
@@ -128,16 +143,17 @@ if __name__ == "__main__":
                         print("you have been kicked out of the casino")
                         break
                     play_again = input("Do you want to play again? (y/n): ").lower()
-                    if play_again == 'y':
-                        table.bet_number()
-                        continue
-                    else:
-                        break
+                    try: 
+                        while play_again not in ['y', 'n', 'yes', 'no']:
+                            play_again = input("Do you want to play again? (y/n): ").lower()
+                    except ValueError:
+                        print("Please enter a valid answer")
             else:
                 os.system('cls')
-                print("You don't have enough money to bet")
-                print("You have " + str(player.money) + " dollars left")
+                print(" You don't have enough money to bet")
+                print(" You have " + str(player.money) + " dollars left")
                 print(" plase enter a valid amount ")
+                print()
                 print(table.show_table())
                 print()
         except ValueError:
